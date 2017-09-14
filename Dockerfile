@@ -1,8 +1,11 @@
 FROM openjdk:8-jre-alpine
 MAINTAINER Oliver Koch <o.koch@synoa.de>
 
-ADD https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.2.7.v20150116/jetty-runner-9.2.7.v20150116.jar /jetty-runner.jar
-ADD https://repo1.maven.org/maven2/com/netflix/hystrix/hystrix-dashboard/1.5.8/hystrix-dashboard-1.5.8.war /hystrix-dashboard.war
+ENV JETTY_VERSION=9.4.6.v20170531
+ENV HYSTRIX_DASHBOARD_VERSION=1.5.9
+
+ADD https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-runner/${JETTY_VERSION}/jetty-runner-${JETTY_VERSION}.jar /jetty-runner.jar
+ADD https://repo1.maven.org/maven2/com/netflix/hystrix/hystrix-dashboard/${HYSTRIX_DASHBOARD_VERSION}/hystrix-dashboard-${HYSTRIX_DASHBOARD_VERSION}.war /hystrix-dashboard.war
 
 EXPOSE 9090
 
